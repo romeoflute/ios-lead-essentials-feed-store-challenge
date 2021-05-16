@@ -19,6 +19,12 @@ extension ManagedCache {
 	@NSManaged public var feed: NSOrderedSet?
 }
 
+extension ManagedCache {
+	var localFeed: [LocalFeedImage] {
+		return feed!.compactMap { ($0 as? ManagedFeedImage)?.local }
+	}
+}
+
 // MARK: Generated accessors for feed
 extension ManagedCache {
 	@objc(insertObject:inFeedAtIndex:)
