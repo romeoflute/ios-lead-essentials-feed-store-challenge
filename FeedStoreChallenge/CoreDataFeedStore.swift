@@ -32,9 +32,7 @@ public final class CoreDataFeedStore: FeedStore {
 		let context = self.context
 		context.perform {
 			do {
-				let request = NSFetchRequest<ManagedCache>(entityName: ManagedCache.entity().name!)
-				request.returnsObjectsAsFaults = false
-				if let cache = try context.fetch(request).first, let feed = cache.feed, feed.count > 0 {
+				if let cache = try ManagedCache.find(in: context) {
 					completion(.found(feed: cache.localFeed, timestamp: cache.timestamp!))
 				} else {
 					completion(.empty)
