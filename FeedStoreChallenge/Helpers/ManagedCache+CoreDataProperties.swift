@@ -21,7 +21,8 @@ extension ManagedCache {
 
 extension ManagedCache {
 	var localFeed: [LocalFeedImage] {
-		return feed!.compactMap { ($0 as? ManagedFeedImage)?.local }
+		guard let feed = feed else { return [LocalFeedImage]() }
+		return feed.compactMap { ($0 as? ManagedFeedImage)?.local }
 	}
 
 	static func find(in context: NSManagedObjectContext) throws -> ManagedCache? {
