@@ -68,5 +68,3 @@ extension ManagedCache {
 	@objc(removeFeed:)
 	@NSManaged public func removeFromFeed(_ values: NSOrderedSet)
 }
-
-extension ManagedCache: Identifiable {}
