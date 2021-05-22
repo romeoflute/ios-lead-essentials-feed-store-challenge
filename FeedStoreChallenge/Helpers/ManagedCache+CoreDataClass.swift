@@ -11,7 +11,7 @@ import Foundation
 import CoreData
 
 @objc(ManagedCache)
-public class ManagedCache: NSManagedObject {
+final class ManagedCache: NSManagedObject {
 	@nonobjc public class func fetchRequest() -> NSFetchRequest<ManagedCache> {
 		return NSFetchRequest<ManagedCache>(entityName: "ManagedCache")
 	}
