@@ -12,10 +12,6 @@ import CoreData
 
 @objc(ManagedCache)
 final class ManagedCache: NSManagedObject {
-	@nonobjc public class func fetchRequest() -> NSFetchRequest<ManagedCache> {
-		return NSFetchRequest<ManagedCache>(entityName: "ManagedCache")
-	}
-
 	@NSManaged var timestamp: Date?
 	@NSManaged var feed: NSOrderedSet
 }
