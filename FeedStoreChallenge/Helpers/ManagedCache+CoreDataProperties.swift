@@ -16,12 +16,11 @@ extension ManagedCache {
 	}
 
 	@NSManaged public var timestamp: Date?
-	@NSManaged public var feed: NSOrderedSet?
+	@NSManaged public var feed: NSOrderedSet
 }
 
 extension ManagedCache {
 	var localFeed: [LocalFeedImage] {
-		guard let feed = feed else { return [LocalFeedImage]() }
 		return feed.compactMap { ($0 as? ManagedFeedImage)?.local }
 	}
 
