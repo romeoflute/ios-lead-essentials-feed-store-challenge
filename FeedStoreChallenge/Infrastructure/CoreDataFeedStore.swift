@@ -71,6 +71,6 @@ public final class CoreDataFeedStore: FeedStore {
 	}
 
 	private func perform(_ action: @escaping (NSManagedObjectContext) -> Void) {
-		context.perform {[context] in action(context) }
+		context.perform { [context] in action(context) }
 	}
 }
