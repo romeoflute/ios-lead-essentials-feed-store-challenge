@@ -31,7 +31,8 @@ public final class CoreDataFeedStore: FeedStore {
 	public func retrieve(completion: @escaping RetrievalCompletion) {
 		perform { context in
 			do {
-				if let cache = try ManagedCache.find(in: context), let timestamp = cache.timestamp {
+				if let cache = try ManagedCache.find(in: context) {
+					let timestamp = cache.timestamp
 					completion(.found(feed: cache.localFeed, timestamp: timestamp))
 				} else {
 					completion(.empty)
@@ -47,7 +48,7 @@ public final class CoreDataFeedStore: FeedStore {
 			do {
 				let managedCache = try ManagedCache.newUniqueInstance(in: context)
 				managedCache.timestamp = timestamp
-				managedCache.feed = ManagedFeedImage.images(from: feed, in: context)
+	 			managedCache.feed = ManagedFeedImage.images(from: feed, in: context)
 
 				try context.save()
 				completion(nil)
