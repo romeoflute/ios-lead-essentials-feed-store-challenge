@@ -1,6 +1,6 @@
 //
 //  Copyright © 2021 Essential Developer. All rights reserved.
-//  meoflauta@gmail.com
+//  meocodemagnus@gmail.com
 
 import CoreData
 
