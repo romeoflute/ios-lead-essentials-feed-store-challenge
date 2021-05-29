@@ -1,6 +1,6 @@
 //
 //  Copyright © 2021 Essential Developer. All rights reserved.
-//  meocodemagnus@gmail.com
+//
 
 import CoreData
 
@@ -48,7 +48,7 @@ public final class CoreDataFeedStore: FeedStore {
 			do {
 				let managedCache = try ManagedCache.newUniqueInstance(in: context)
 				managedCache.timestamp = timestamp
-				managedCache.feed = ManagedFeedImage.images(from: feed, in: context)
+	 			managedCache.feed = ManagedFeedImage.images(from: feed, in: context)
 
 				try context.save()
 				completion(nil)
